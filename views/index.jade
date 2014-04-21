@@ -3,3 +3,13 @@ extends layout
 block content
   h1= title
   p Welcome to #{title}
+  div#accordion.panel-group
+    each request in requests
+      div.panel.panel-default
+        div.panel-heading
+          h4.panel-title
+            <a data-toggle="collapse" data-parent="#accordion" href="##{request.id}">#{request.url}</a>
+        <div id="#{request.id}" class="panel-collapse collapse in">
+        div.panel-body
+          p HTML stands for HyperText Markup Language. HTML is the main markup language for describing the structure of Web pages. <a href="http://www.tutorialrepublic.com/html-tutorial/" target="_blank">Learn more.</a>
+        </div>

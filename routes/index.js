@@ -5,7 +5,13 @@ var router = express.Router();
 /* GET home page. */
 router.get('/', function(req, res) {
   //Test object
-  var test = new ProxyRequest({ body: 'Test body' });
+  ProxyRequest.find({}, function (err, requests) {
+         
+         //res.send(requests); 
+         res.render('index', { title: 'Express', requests:requests }); 
+   });
+
+ /* var test = new ProxyRequest({ body: 'Test body' });
   test.save(function (err) {
     if (err) {
       console.log('Error saving ' + err );  
@@ -15,7 +21,7 @@ router.get('/', function(req, res) {
 
       console.log('Saved');   
     }
-  });
+  });*/
 });
 
 module.exports = router;
